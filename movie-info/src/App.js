@@ -1,31 +1,21 @@
-import {useState} from "react";
+import React from "react";
+import axios from "axios";
 
-function App() {
-  const [toDo, setToDO] = useState("");
-  const [toDos, setToDos] = useState([]);
-  const onChange = (event) => setToDo(event.target.value);
-  const onSubmit = (event) => {
-	  event.preventDefault();
-	  if (toDO === ""){
-		  return;
-	  }
-	  setToDo("");
-	  setToDos(currentArray => [toDo, ]);
-  };
-  console.log(toDos);
-  return (
-	<div>
-		  <form onSubmit = {onSubmit}>
-		  	<input
-				onChange = {onChange}
-				value = {toDo}
-				type = "text"
-				placeholder = "Write your to do..."
-		  </form>
-			
-
-	</div>
-  );
+class App extends React.Component{
+	state = {
+		isLoading: true,
+		movies: []
+	};
+	getMovies = async () => {
+		const movies = await axios.get("https://yts-proxy.now.sh/list_movies.json");
+	};
+	componentDidMount() {
+		this.getMovies();
+	}
+	render() {
+		const {isLoading} = this.state;
+		return <div> {isLoading ? "Loading..." : "We are ready"}</div>;
+	}
 }
 
 export default App;
