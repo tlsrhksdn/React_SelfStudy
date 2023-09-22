@@ -4,3 +4,5 @@ https://oopaque.tistory.com/191
 node.js 설치시 node: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.28' not found (required by node) 에러 해결방법
 https://sunnys-note.tistory.com/12
 
+Error: error:0308010C:digital envelope routines::unsupported 에러 해결방법
+https://onlydev.tistory.com/114
